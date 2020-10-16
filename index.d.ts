@@ -387,8 +387,8 @@ declare namespace Emittery {
 	```
 	*/
 	class Typed<EventDataMap extends Events, EmptyEvents extends EventName = never> extends Emittery {
-		on<Name extends EventNameFromDataMap<EventDataMap>>(eventName: Name, listener: (eventData: EventDataMap[Name]) => void): Emittery.UnsubscribeFn;
-		on<Name extends EmptyEvents>(eventName: Name, listener: () => void): Emittery.UnsubscribeFn;
+		on<Name extends EventNameFromDataMap<EventDataMap>>(eventName: Name, listener: (eventData: EventDataMap[Name]) => Promise<void>): Emittery.UnsubscribeFn;
+		on<Name extends EmptyEvents>(eventName: Name, listener: () => Promise<void>): Emittery.UnsubscribeFn;
 
 		events<Name extends EventNameFromDataMap<EventDataMap>>(eventName: Name): AsyncIterableIterator<EventDataMap[Name]>;
 
