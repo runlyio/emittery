@@ -1,6 +1,6 @@
 {
-	"name": "emittery",
-	"version": "0.7.1",
+	"name": "@runly/emittery",
+	"version": "1.0.0",
 	"description": "Simple and modern async event emitter",
 	"license": "MIT",
 	"repository": "sindresorhus/emittery",
@@ -63,5 +63,8 @@
 			"lcov",
 			"text"
 		]
-	}
+	},
+	"publishConfig": {
+		"access": "public"
+	  }
 }

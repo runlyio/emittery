@@ -106,8 +106,8 @@ declare class Emittery {
 	emitter.emit('🐶', '🍖'); // log => '🍖'
 	```
 	*/
-	on(eventName: typeof Emittery.listenerAdded | typeof Emittery.listenerRemoved, listener: (eventData: Emittery.ListenerChangedData) => void): Emittery.UnsubscribeFn
-	on(eventName: EventNames, listener: (eventData?: unknown) => void): Emittery.UnsubscribeFn;
+	on(eventName: typeof Emittery.listenerAdded | typeof Emittery.listenerRemoved, listener: (eventData: Emittery.ListenerChangedData) => Promise<void>): Emittery.UnsubscribeFn
+	on(eventName: EventNames, listener: (eventData?: unknown) => Promise<void>): Emittery.UnsubscribeFn;
 
 	/**
 	Get an async iterator which buffers data each time an event is emitted.

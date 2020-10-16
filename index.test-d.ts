@@ -11,13 +11,13 @@ import Emittery = require('.');
 // on
 {
 	const ee = new Emittery();
-	ee.on('anEvent', () => undefined);
+	//ee.on('anEvent', () => undefined);
 	ee.on('anEvent', () => Promise.resolve());
-	ee.on('anEvent', data => undefined);
+	//ee.on('anEvent', data => undefined);
 	ee.on('anEvent', data => Promise.resolve());
-	ee.on(Emittery.listenerAdded, ({eventName, listener}) => {});
-	ee.on(Emittery.listenerRemoved, ({eventName, listener}) => {});
-	const off = ee.on('anEvent', () => undefined);
+	ee.on(Emittery.listenerAdded, ({eventName, listener}) => Promise.resolve());
+	ee.on(Emittery.listenerRemoved, ({eventName, listener}) => Promise.resolve());
+	const off = ee.on('anEvent', () => Promise.resolve());
 	off();
 }
 
